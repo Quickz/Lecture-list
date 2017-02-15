@@ -1,0 +1,104 @@
+
+body {
+		font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* main content */
+#content {
+	width: 100%;
+	margin: auto;
+}
+
+/* container for primary content */
+#lectures {
+	width: 78%;
+	float: left;
+	margin-top: 8vw;
+	padding: 10px 0;
+}
+
+/* contains all the data */
+#lectures-table {
+	margin-top: 4%;
+}
+
+/* the conainer at the very top */
+#top {
+	position: fixed;
+	top: 0;
+	padding-top: 1vw;
+	background: #fff;
+	width: 78%;
+	text-align: center;
+}
+
+/* logo on the top */
+#rta-logo {
+	width: 20%;
+	margin-top: 2.75%;
+	float: right;
+}
+
+h1 {
+	font-size: 5vw;
+	float: left;
+	margin: 0 0 1vw 0;
+}
+
+/* modified bootstrap 4 table class */
+.table {
+	text-align: left;
+	color: #373a3c;
+	width: 100%;
+	max-width: 100%;
+	border-collapse: collapse;
+	font-size: 1.5vw;
+}
+
+/* setting a specific width to every column */
+.table th:nth-child(1),
+.table td:nth-child(1) { width: 15%; }
+.table th:nth-child(2),
+.table td:nth-child(2) { width: 10%; }
+.table th:nth-child(3),
+.table td:nth-child(3) { width: 50%; }
+.table th:nth-child(4),
+.table td:nth-child(4) { width: 25%; }
+
+.table th,
+.table td {
+	padding: 0.85rem;
+	border-top: 1px solid #eceeef;
+}
+
+.table thead th {
+	border-bottom: 2px solid #eceeef;
+}
+
+/* content on the right side */
+#side-bar {
+	position: fixed;
+	right: 0;
+	margin-top: 11.25vw;
+	width: 14.55vw;
+}
+
+/* classes for the content inside the side bar */
+.side-cont {
+	width: 10vw;
+	min-height: 10vw;
+	margin: 1vw;
+	padding: 1vw;
+	border: solid #eceeef 0.25vw;
+}
+
+.side-cont img {
+	width: 100%;
+}
+
+/* container for the date and todays names */
+#daily-info {
+	font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-size: 1.2vw;
+	color: #373a3c;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	<script src="jquery-3.1.0.min.js"></script>
+	<script src="qrcodejs/qrcode.min.js"></script>
+
+	<title>Saraksts</title>
+
+</head>
+<body>
+
+	<div id="content">
+
+		<div id="top">
+
+			<img id="rta-logo" src="rtalogo.png">
+			<h1>Lekciju saraksts</h1>
+
+			<table class="table">
+				<thead>
+					<th>Auditorija</th>
+					<th>Laiks</th>
+					<th>Lekcija</th>
+					<th>Docētājs</th>
+				</thead>
+			</table>
+
+		</div>
+
+		<!-- container for primary content -->
+		<div id="lectures">
+
+			<table id="lectures-table" class="table">
+				<tbody>
+					<tr>
+
+						<td>loading. . .</td>
+
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+
+		<div id="side-bar">
+			<div id="daily-info" class="side-cont">
+				<div id="date"></div>
+				<div id="todays-names"></div>
+			</div>
+			<div id="qr-code" class="side-cont"></div>
+		</div>
+
+	</div>
+
+	<!-- functionality -->
+	<script src="script.js"></script>
+
+</body>
+</html>
