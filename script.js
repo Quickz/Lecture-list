@@ -35,7 +35,6 @@
 
     var scrollInterval;
     var currAnim;
-    var speed = $(window).height() * 15;
     callScroll();
     refreshData();
 
@@ -182,9 +181,9 @@
 
 
     /**
-    * generates qr code image
-    *
-    */
+     * generates qr code image
+     *
+     */
     function generateQrCode()
     {
         var url = window.location.href;
@@ -196,9 +195,9 @@
 
 
     /**
-    * returns a text stating the current date
-    *
-    */
+     * returns a text stating the current date
+     *
+     */
     function getCurrDate()
     {
         var date = new Date();
@@ -212,10 +211,10 @@
 
 
     /**
-    * refreshes the current date and
-    * requests the data for the table
-    * and daily names
-    */
+     * refreshes the current date and
+     * requests the data for the table
+     * and daily names
+     */
     function refreshData()
     {
         $("#date").text(getCurrDate());
@@ -225,17 +224,18 @@
 
 
     /**
-    * starts to scroll up and down repeatedly
-    * 
-    */
+     * starts to scroll up and down repeatedly
+     * 
+     */
     function callScroll()
     {
         // canceling out any previous interval
         clearTimeout(scrollInterval);
-        $("body").stop();
+        var speed = $(window).height() * 15;
+        $("html, body").stop();
 
         scrollInterval = setInterval(function() {
-            currAnim = $("body").animate({
+            currAnim = $("html, body").animate({
                 scrollTop: $(document).height() - $(window).height() },
                 speed, function() {
                 $(this).animate({ scrollTop: 0 }, speed);
