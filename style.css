@@ -1,6 +1,44 @@
 
 body {
-		font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* background for the loader */
+#loading {
+	z-index: 1;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+	background: black;
+}
+
+/* the rotating circle */
+#loader {
+	position: relative;
+	left: calc(50% - 5vw);
+	top: calc(50% - 5vw);
+
+	border: 1.5vw solid #111111;
+	border-radius: 50%;
+	border-top: 1.5vw solid #333333;
+	width: 7vw;
+	height: 7vw;
+	
+	-webkit-animation: spin 1s linear infinite;
+	animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
 }
 
 /* main content */
@@ -11,38 +49,35 @@ body {
 
 /* container for primary content */
 #lectures {
-	width: 78%;
-	float: left;
-	margin-top: 8vw;
-	padding: 10px 0;
-}
-
-/* contains all the data */
-#lectures-table {
-	margin-top: 4%;
+	z-index: -1;
+	position: absolute;
+	width: 78vw;
+	float: right;
+	right: 0;
+	margin: 11vw 3vw 0 0;
 }
 
 /* the conainer at the very top */
 #top {
 	position: fixed;
+	right: 0;
 	top: 0;
 	padding-top: 1vw;
+	margin: 0 3vw;
 	background: #fff;
-	width: 78%;
+	width: 78vw;
 	text-align: center;
 }
 
 /* logo on the top */
 #rta-logo {
-	width: 20%;
-	margin-top: 2.75%;
-	float: right;
+	width: 100%;
 }
 
 h1 {
-	font-size: 5vw;
+	font-size: 3vw;
 	float: left;
-	margin: 0 0 1vw 0;
+	margin: 0 0 0.25vw 0;
 }
 
 /* modified bootstrap 4 table class */
@@ -50,7 +85,6 @@ h1 {
 	text-align: left;
 	color: #373a3c;
 	width: 100%;
-	max-width: 100%;
 	border-collapse: collapse;
 	font-size: 1.5vw;
 }
@@ -65,21 +99,30 @@ h1 {
 .table th:nth-child(4),
 .table td:nth-child(4) { width: 25%; }
 
+.table tbody tr:nth-child(odd) {
+	background: #f2f2f2;
+}
+
+.table tbody tr:nth-child(even) {
+	color: #7a8185;
+	font-weight: 200;
+}
+
 .table th,
 .table td {
-	padding: 0.85rem;
-	border-top: 1px solid #eceeef;
+	padding: 0.75vw;
+	border-top: 0.1vw solid #eceeef;
 }
 
 .table thead th {
-	border-bottom: 2px solid #eceeef;
+	border-bottom: 0.2vw solid #eceeef;
 }
 
 /* content on the right side */
 #side-bar {
 	position: fixed;
-	right: 0;
-	margin-top: 11.25vw;
+	left: 0;
+	margin: 2vw 0 0 2vw;
 	width: 14.55vw;
 }
 
@@ -96,9 +139,26 @@ h1 {
 	width: 100%;
 }
 
+/**
+ * used to seperate daily info in a different
+ * line from the lecture list
+ */
+#daily-cont {
+	width: 100%;
+	float: left;
+}
+
 /* container for the date and todays names */
 #daily-info {
-	font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-	font-size: 1.2vw;
+	font-size: 1.3vw;
+	float: left;
+	max-width: calc(100% - 2.75vw);
 	color: #373a3c;
+	padding: 0.25vw 2vw 0.25vw 0.75vw;
+	margin-bottom: 0.4vw;
+	border: solid #eceeef 0.2vw;
 }
+
+#date, #todays-names { float: left; }
+#todays-names { color: #999999; }
+#date { margin-right: 0.7vw; }

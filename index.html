@@ -13,12 +13,22 @@
 </head>
 <body>
 
+	<div id="loading">
+		<div id="loader"></div>
+	</div>
+
 	<div id="content">
 
 		<div id="top">
 
-			<img id="rta-logo" src="rtalogo.png">
 			<h1>Lekciju saraksts</h1>
+
+			<div id="daily-cont">
+				<div id="daily-info">
+					<div id="date"></div>
+					<div id="todays-names"></div>
+				</div>
+			</div>
 
 			<table class="table">
 				<thead>
@@ -36,21 +46,13 @@
 
 			<table id="lectures-table" class="table">
 				<tbody>
-					<tr>
-
-						<td>loading. . .</td>
-
-					</tr>
 				</tbody>
 			</table>
 
 		</div>
 
 		<div id="side-bar">
-			<div id="daily-info" class="side-cont">
-				<div id="date"></div>
-				<div id="todays-names"></div>
-			</div>
+			<img id="rta-logo" src="rtalogo.png">
 			<div id="qr-code" class="side-cont"></div>
 		</div>
 

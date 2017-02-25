@@ -36,6 +36,8 @@
     var scrollInterval;
     var currAnim;
     callScroll();
+
+
     refreshData();
 
     // QR Code
@@ -78,14 +80,14 @@
                             json[i].laiks = [json[i].laiks];
                         if (json[i].laiks)
                         {
-                            processData(json[i].laiks[j], rowNumber, !j);
-                            if (j == 1)
-                                $("#row" + rowNumber).css({ "color": "#7a8185", "font-weight": 200 });
+                            var output = processData(json[i].laiks[j], rowNumber, !j);
                             rowNumber++;
+                            if (!output)
+                                break;
                         }
-
                     }
                 }
+                $("#loading").remove();
             }
         });
     }
@@ -112,7 +114,7 @@
      * Adds a whole row to the table
      *
      */
-    function addLecturer(room, time, lecture, name, rowNumber)
+    function addLecture(room, time, lecture, name, rowNumber)
     {
         var $row = $("<tr>", {
             id: "row" + rowNumber
@@ -143,7 +145,12 @@
     {
 
         // checking if the there's any content
-        if (data == null || !data.telpa) return;
+        if (data == null || !data.telpa)
+        {
+            if (includeRoom == false)
+                addLecture("", "tukšs", "tukšs", "tukšs", rowNumber);
+            return false;
+        }
         
         var room = null;
         var time = null;
@@ -172,11 +179,16 @@
             if (data.telpa.kurs.pasn)
                 name = data.telpa.kurs.pasn;
         }
-        else return;
+        else
+        {
+            if (includeRoom == false)
+                addLecture("", "tukšs", "tukšs", "tukšs", rowNumber);
+            return false;
+        }
 
         // adding a row
-        addLecturer(includeRoom ? room : "", time, lecture, name, rowNumber);
-
+        addLecture(includeRoom ? room : "", time, lecture, name, rowNumber);
+        return true;
     }
 
 
